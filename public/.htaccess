@@ -1,0 +1,25 @@
+RewriteEngine On
+<IfModule mod_rewrite.c>
+ #Session timeout
+
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+   Options +FollowSymlinks
+   RewriteEngine On
+
+   # Redirect Trailing Slashes...
+   RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ ^$1 [N]
+
+RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
+RewriteRule ^(.*)$ public/$1
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
