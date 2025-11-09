@@ -24,14 +24,12 @@ Validation ensures correct scheduling, available seats, and proper data format.
 
 
 🎫 Booking System (Users)
-
-Authenticated users can:
-
-View a list of available events.
-Search events by title or location.
-Book seats within availability.
-View their own bookings.
-Cancel bookings (soft delete).
+Authenticated users (use Laravel Breeze or Sanctum for API) can:
+    View a list of available events.
+    Search events by title or location.
+    Book seats within availability.
+    View their own bookings.
+    Cancel bookings (soft delete).
 
 Prevents:
 Overbooking (respects available_seats).
@@ -40,10 +38,9 @@ Duplicate bookings by the same user.
 
 
 🔒 Advanced Admin Features
-  📧 Forgot Password by Email
-
-    Built-in Laravel password reset notification system.
-    Configurable via .env or dynamic project settings.
+📧 Forgot Password by Email
+Built-in Laravel password reset notification system.
+Configurable via .env or dynamic project settings.
 
 🧾 Dynamic Slug Generation
 
@@ -65,9 +62,7 @@ IP Address
     Updates users.last_login_ip and users.last_login_at.
     Uses Jenssegers/Agent for device info parsing.
 
-
 🧠 Audit Management (System-wide Logging)
-
     Custom Auditable Trait to log:
     Create, update, delete operations across models.
     Stores:
