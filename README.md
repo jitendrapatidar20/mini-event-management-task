@@ -45,12 +45,9 @@ Duplicate bookings by the same user.
     Built-in Laravel password reset notification system.
     Configurable via .env or dynamic project settings.
 
-
-
 🧾 Dynamic Slug Generation
 
 Each event automatically generates a unique slug based on its title.
-
 If the title changes, the slug updates only if required.
 
 🚫 IP Blocking After 4 Failed Login Attempts
@@ -69,18 +66,16 @@ IP Address
     Uses Jenssegers/Agent for device info parsing.
 
 
-
 🧠 Audit Management (System-wide Logging)
 
-Custom Auditable Trait to log:
-Create, update, delete operations across models.
-
-Stores:
-User performing the action
-Model type, model ID
-Old and new data (JSON)
-Uses dedicated audits table.
-Can be extended with Spatie Activity Log or Laravel Telescope.
+    Custom Auditable Trait to log:
+    Create, update, delete operations across models.
+    Stores:
+    User performing the action
+    Model type, model ID
+    Old and new data (JSON)
+    Uses dedicated audits table.
+    Can be extended with Spatie Activity Log or Laravel Telescope.
 
 
 ⚙️ Dynamic Project Settings (Database-Based)
@@ -92,17 +87,6 @@ Support Email
 SMTP credentials
 Footer Text
 Social Links
-
-
-Cached and globally accessible:
-config('project.project_name');
-ProjectSetting::getValue('footer_text');
-
-
-Shared to all Blade templates via $projectSettings.
-Admin UI at /admin/settings to update values dynamically.
-Optional .env synchronization for sensitive credentials.
-
 
 
 🛡️ Security & Best Practices
@@ -130,75 +114,15 @@ cviebrock/eloquent-sluggable (Slug generation)
 Cache (for settings and performance)
 
 
-
-⚙️ Installation Guide
-# 1️⃣ Clone Repository
-git clone https://github.com/<your-github-username>/event-booking-system.git
-cd event-booking-system
-
-# 2️⃣ Install Dependencies
-composer install
-npm install && npm run dev
-
-# 3️⃣ Configure Environment
-cp .env.example .env
-php artisan key:generate
-
-# Update .env file with:
-# Database credentials
-# Mail settings (SMTP)
-
-# 4️⃣ Run Migrations & Seeders
-php artisan migrate --seed
-
-# 5️⃣ Start Local Server
-php artisan serve
-
-
-👤 Default Admin Credentials
-FieldValueEmailadmin@example.comPasswordpassword
-
-🧪 Testing
-Run the test suite:
-php artisan test
-Test Coverage:
-Authentication and Password Reset
-
-
-
-
-🗂️ Folder Structure (Highlights)
-app/
- ├── Models/
- │   ├── Audit.php
- │   ├── Booking.php
- │   ├── Event.php
- │   ├── LoginHistory.php
- │   └── ProjectSetting.php
- ├── Traits/
- │   └── Auditable.php
- ├── Http/Controllers/
- │   ├── Admin/
- │   │   ├── EventController.php
- │   │   ├── ProjectSettingController.php
- │   │   └── DashboardController.php
- │   └── Auth/LoginController.php
- └── Providers/
-     └── ProjectSettingServiceProvider.php
-database/
- ├── migrations/
- └── seeders/
-resources/views/admin/
- ├── events/
- ├── bookings/
- └── settings/
-
-
-
 ✅ Feature Checklist
-FeatureStatusUser Authentication + Email Reset✅Event CRUD (Admin)✅Seat Booking (User)✅Dynamic Slug Generation✅IP Lock After 4 Failed Logins✅Login History Tracking✅Audit Management✅Dynamic Project Settings (DB)✅Soft Deletes✅Validation & Security✅
+FeatureStatusUser Authentication + Email Reset
+✅Event CRUD (Admin)
+✅Seat Booking (User)
+✅Dynamic Slug Generation
+✅IP Lock After 4 Failed Logins
+✅Login History Tracking
+✅Audit Management
+✅Dynamic Project Settings (DB)
+✅Soft Deletes
+✅Validation & Security✅
 
-🏁 Project Summary
-This project demonstrates a complete, production-ready Laravel 8 system for managing events and bookings with robust admin features and best practices for scalability, security, and maintainability.
-
-Would you like me to add a database relationship diagram (Mermaid ERD) at the end of this README to visually represent all models and relations (Users → Bookings → Events, etc.)?
